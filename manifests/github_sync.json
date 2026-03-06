@@ -1,0 +1,15 @@
+{
+  "name": "github_sync",
+  "tier": 2,
+  "category": "autonomy",
+  "status": "deployed",
+  "purpose": "Auto-commit memory and skill updates to GitHub",
+  "entry_point": "tier2_autonomy/github_sync.sh",
+  "env_required": [
+    "GITHUB_TOKEN_AGENTS"
+  ],
+  "outputs": [
+    "quillyos-knowledge-base/"
+  ],
+  "version": "1.0.0"
+}

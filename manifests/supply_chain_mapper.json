@@ -1,0 +1,13 @@
+{
+  "name": "supply_chain_mapper",
+  "tier": 3,
+  "category": "intelligence",
+  "status": "not_built",
+  "purpose": "Map and predict resource trajectories for arbitrage",
+  "entry_point": "tier3_intelligence/supply_chain_mapper.py",
+  "env_required": [],
+  "outputs": [
+    "workspace/memory/supply_chain.json"
+  ],
+  "version": "0.1.0"
+}

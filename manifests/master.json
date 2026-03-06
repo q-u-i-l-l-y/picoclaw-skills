@@ -1,0 +1,149 @@
+{
+  "generated_at": "2026-03-06T14:07:41.783061",
+  "total_skills": 10,
+  "deployed": 3,
+  "pending_credentials": 2,
+  "not_built": 4,
+  "skills": [
+    {
+      "name": "upwork_connector",
+      "tier": 1,
+      "category": "revenue",
+      "status": "credentials_pending",
+      "purpose": "Discover and analyze Upwork job opportunities for arbitrage",
+      "entry_point": "tier1_revenue/upwork_connector.py",
+      "env_required": [
+        "UPWORK_API_KEY",
+        "UPWORK_API_SECRET"
+      ],
+      "outputs": [
+        "workspace/memory/upwork_leads.json"
+      ],
+      "version": "0.1.0"
+    },
+    {
+      "name": "freelancer_connector",
+      "tier": 1,
+      "category": "revenue",
+      "status": "not_built",
+      "purpose": "Discover Freelancer.com projects for arbitrage",
+      "entry_point": "tier1_revenue/freelancer_connector.py",
+      "env_required": [
+        "FREELANCER_API_KEY"
+      ],
+      "outputs": [
+        "workspace/memory/freelancer_leads.json"
+      ],
+      "version": "0.1.0"
+    },
+    {
+      "name": "deal_validator",
+      "tier": 1,
+      "category": "revenue",
+      "status": "not_built",
+      "purpose": "Validate deal quality and calculate real margin",
+      "entry_point": "tier1_revenue/deal_validator.py",
+      "env_required": [],
+      "outputs": [
+        "workspace/memory/validated_deals.json"
+      ],
+      "version": "0.1.0"
+    },
+    {
+      "name": "stripe_connector",
+      "tier": 1,
+      "category": "revenue",
+      "status": "credentials_pending",
+      "purpose": "Process payments and track real revenue",
+      "entry_point": "tier1_revenue/stripe_connector.py",
+      "env_required": [
+        "STRIPE_API_KEY"
+      ],
+      "outputs": [
+        "workspace/memory/revenue_log.json"
+      ],
+      "version": "0.1.0"
+    },
+    {
+      "name": "ollama_watchdog",
+      "tier": 2,
+      "category": "autonomy",
+      "status": "deployed",
+      "purpose": "Keep Ollama running 24/7 with auto-restart",
+      "entry_point": "tier2_autonomy/ollama_watchdog.py",
+      "env_required": [],
+      "outputs": [
+        "logs/ollama_watchdog.log"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "name": "github_sync",
+      "tier": 2,
+      "category": "autonomy",
+      "status": "deployed",
+      "purpose": "Auto-commit memory and skill updates to GitHub",
+      "entry_point": "tier2_autonomy/github_sync.sh",
+      "env_required": [
+        "GITHUB_TOKEN_AGENTS"
+      ],
+      "outputs": [
+        "quillyos-knowledge-base/"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "name": "manus_sync",
+      "tier": 2,
+      "category": "autonomy",
+      "status": "deployed",
+      "purpose": "Fetch Manus discussion content via API into knowledge base",
+      "entry_point": "tier2_autonomy/manus_api_integration.py",
+      "env_required": [
+        "MANUS_API_KEY",
+        "MANUS_API_ENDPOINT"
+      ],
+      "outputs": [
+        "workspace/memory/manus_TVAEZQgQgXNBXq3Hb7XB6f.json"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "name": "model_router",
+      "tier": 2,
+      "category": "autonomy",
+      "status": "designed",
+      "purpose": "Route tasks to optimal model tier based on complexity",
+      "entry_point": "tier2_autonomy/model_router.py",
+      "env_required": [],
+      "outputs": [],
+      "version": "0.1.0"
+    },
+    {
+      "name": "context_synthesizer",
+      "tier": 3,
+      "category": "intelligence",
+      "status": "not_built",
+      "purpose": "Compile insights across all crawl sources into unified KB",
+      "entry_point": "tier3_intelligence/context_synthesizer.py",
+      "env_required": [],
+      "outputs": [
+        "workspace/memory/synthesized_context.json"
+      ],
+      "version": "0.1.0"
+    },
+    {
+      "name": "supply_chain_mapper",
+      "tier": 3,
+      "category": "intelligence",
+      "status": "not_built",
+      "purpose": "Map and predict resource trajectories for arbitrage",
+      "entry_point": "tier3_intelligence/supply_chain_mapper.py",
+      "env_required": [],
+      "outputs": [
+        "workspace/memory/supply_chain.json"
+      ],
+      "version": "0.1.0"
+    }
+  ]
+}

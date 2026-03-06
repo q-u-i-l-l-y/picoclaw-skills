@@ -1,0 +1,15 @@
+{
+  "name": "stripe_connector",
+  "tier": 1,
+  "category": "revenue",
+  "status": "credentials_pending",
+  "purpose": "Process payments and track real revenue",
+  "entry_point": "tier1_revenue/stripe_connector.py",
+  "env_required": [
+    "STRIPE_API_KEY"
+  ],
+  "outputs": [
+    "workspace/memory/revenue_log.json"
+  ],
+  "version": "0.1.0"
+}

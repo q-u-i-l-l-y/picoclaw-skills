@@ -1,0 +1,13 @@
+{
+  "name": "context_synthesizer",
+  "tier": 3,
+  "category": "intelligence",
+  "status": "not_built",
+  "purpose": "Compile insights across all crawl sources into unified KB",
+  "entry_point": "tier3_intelligence/context_synthesizer.py",
+  "env_required": [],
+  "outputs": [
+    "workspace/memory/synthesized_context.json"
+  ],
+  "version": "0.1.0"
+}
