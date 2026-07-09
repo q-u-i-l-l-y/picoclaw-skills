@@ -1,6 +1,6 @@
 # PICOCLAW // SKILLS
 ## Skill Repository for the QuillyOS Ecosystem
-### Status: Living Document
+### Status: Living Document | Version 4.1
 
 ---
 
@@ -51,9 +51,37 @@ picoclaw-skills/
 
 ---
 
+## PROGRESSIVE CAPABILITY
+
+Skills are designed to scale across all compute tiers:
+
+```
+phone → Termux → PicoClaw → Raspberry Pi → clusters → future compute
+```
+
+The same skill manifest runs on all tiers. Capability increases. Protocol remains identical.
+
+---
+
 ## SKILL MANIFEST
 
 The master skill registry lives at `manifests/master.json`.
+
+It tracks:
+- **deployed** — Skills ready for execution
+- **pending_credentials** — Skills awaiting API keys or tokens
+- **not_built** — Skills specified but not yet implemented
+
+---
+
+## HEALTH-CENTRIC DESIGN
+
+Skills are organized around health as the central pursuit:
+
+- `skills/medical/` — Health mapping, biometric ingestion, predictive modeling
+- `skills/metamaterials/` — Novel sensing for health monitoring
+- `skills/quantum/` — Future health data interfaces
+- `skills/business/` — Revenue generation to fund health research
 
 ---
 
