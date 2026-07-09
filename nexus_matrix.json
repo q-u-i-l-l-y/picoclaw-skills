@@ -1,8 +1,20 @@
 {
-  "matrix_id": "skills-matrix-v4-0-0",
+  "matrix_id": "skills-matrix-v4-1-0",
   "repository": "picoclaw-skills",
-  "version": "4.0.0",
-  "generated_at": "2026-07-09T00:00:00Z",
+  "version": "4.1.0",
+  "generated_at": "2026-07-09T01:30:00Z",
+  "immutable_principles": [
+    "quillyos-foundation/VISION.md#immutable-vision",
+    "quillyos-foundation/VISION.md#progressive-capability-principle",
+    "quillyos-foundation/ETHICS.md#principles"
+  ],
+  "evolving_documents": [
+    "manifests/master.json",
+    "skills/business/",
+    "skills/medical/",
+    "skills/quantum/",
+    "skills/metamaterials/"
+  ],
   "superposition": {
     "foundation": {
       "principles": [
@@ -11,7 +23,8 @@
         "ROADMAP.md"
       ],
       "dependencies": [
-        "quillyos-foundation/VISION.md#revenue"
+        "quillyos-foundation/VISION.md#revenue",
+        "quillyos-foundation/VISION.md#health-as-the-central-organizing-principle"
       ],
       "exports": [
         "skills/business/",
@@ -76,9 +89,15 @@
     },
     {
       "from": "skills/business/arbitrage/upwork_connector.py",
-      "to": "quillyos-foundation/REVENUE_MODEL.md#tier-1",
+      "to": "quillyos-foundation/REVENUE_MODEL.md",
       "relationship": "implements",
       "confidence": 0.9
+    },
+    {
+      "from": "skills/quantum/explorer.py",
+      "to": "quillyos-knowledge-base/quantum/",
+      "relationship": "explores",
+      "confidence": 0.88
     }
   ]
 }
