@@ -1,8 +1,8 @@
 {
-  "matrix_id": "skills-matrix-v4-1-0",
+  "matrix_id": "skills-matrix-v4-2-0",
   "repository": "picoclaw-skills",
-  "version": "4.1.0",
-  "generated_at": "2026-07-09T01:30:00Z",
+  "version": "4.2.0",
+  "generated_at": "2026-07-09T13:00:00Z",
   "immutable_principles": [
     "quillyos-foundation/VISION.md#immutable-vision",
     "quillyos-foundation/VISION.md#progressive-capability-principle",
@@ -13,7 +13,9 @@
     "skills/business/",
     "skills/medical/",
     "skills/quantum/",
-    "skills/metamaterials/"
+    "skills/metamaterials/",
+    "skills/casimir/",
+    "skills/ornith/"
   ],
   "superposition": {
     "foundation": {
@@ -28,7 +30,9 @@
       ],
       "exports": [
         "skills/business/",
-        "skills/medical/"
+        "skills/medical/",
+        "skills/casimir/",
+        "skills/ornith/"
       ]
     },
     "nexus": {
@@ -60,7 +64,9 @@
         "skills/business/",
         "skills/medical/",
         "skills/quantum/",
-        "skills/metamaterials/"
+        "skills/metamaterials/",
+        "skills/casimir/",
+        "skills/ornith/"
       ],
       "dependencies": [],
       "exports": [
@@ -78,6 +84,28 @@
       "exports": [
         "skills/"
       ]
+    },
+    "n8n": {
+      "workflows": [
+        "n8n/workflows/"
+      ],
+      "dependencies": [
+        "n8n/templates/"
+      ],
+      "exports": [
+        "skill_trigger_specs/"
+      ]
+    },
+    "roadmap": {
+      "milestones": [
+        "quillyos-roadmap/milestones/"
+      ],
+      "dependencies": [
+        "quillyos-roadmap/current_phase.md"
+      ],
+      "exports": [
+        "skill_development_queue/"
+      ]
     }
   },
   "cross_references": [
@@ -88,16 +116,17 @@
       "confidence": 0.95
     },
     {
-      "from": "skills/business/arbitrage/upwork_connector.py",
-      "to": "quillyos-foundation/REVENUE_MODEL.md",
+      "from": "skills/casimir/vacuum_power.py",
+      "to": "quillyos-knowledge-base/research/casimir_microsparc.md",
       "relationship": "implements",
-      "confidence": 0.9
+      "confidence": 0.7,
+      "note": "Pending MicroSPARC validation"
     },
     {
-      "from": "skills/quantum/explorer.py",
-      "to": "quillyos-knowledge-base/quantum/",
-      "relationship": "explores",
-      "confidence": 0.88
+      "from": "skills/ornith/local_agentic.py",
+      "to": "quillyos-knowledge-base/research/ornith_1_0.md",
+      "relationship": "implements",
+      "confidence": 0.85
     }
   ]
 }
