@@ -1,0 +1,84 @@
+{
+  "matrix_id": "skills-matrix-v4-0-0",
+  "repository": "picoclaw-skills",
+  "version": "4.0.0",
+  "generated_at": "2026-07-09T00:00:00Z",
+  "superposition": {
+    "foundation": {
+      "principles": [
+        "VISION.md",
+        "REVENUE_MODEL.md",
+        "ROADMAP.md"
+      ],
+      "dependencies": [
+        "quillyos-foundation/VISION.md#revenue"
+      ],
+      "exports": [
+        "skills/business/",
+        "skills/medical/"
+      ]
+    },
+    "nexus": {
+      "protocols": [
+        "AGENT_SCHEMA.md",
+        "TASK_SCHEMA.md"
+      ],
+      "dependencies": [
+        "quillyos-nexus/SPEC.md"
+      ],
+      "exports": [
+        "manifests/master.json"
+      ]
+    },
+    "knowledge_base": {
+      "discoveries": [
+        "quillyos-knowledge-base/research/",
+        "quillyos-knowledge-base/medical/"
+      ],
+      "dependencies": [
+        "quillyos-knowledge-base/knowledge_index.md"
+      ],
+      "exports": [
+        "skills/"
+      ]
+    },
+    "skills": {
+      "capabilities": [
+        "skills/business/",
+        "skills/medical/",
+        "skills/quantum/",
+        "skills/metamaterials/"
+      ],
+      "dependencies": [],
+      "exports": [
+        "manifests/master.json#skills"
+      ]
+    },
+    "runtime": {
+      "executors": [
+        "picoclaw-dev/runtime/",
+        "picoclaw-dev/agents/"
+      ],
+      "dependencies": [
+        "picoclaw-dev/config/"
+      ],
+      "exports": [
+        "skills/"
+      ]
+    }
+  },
+  "cross_references": [
+    {
+      "from": "skills/medical/health_mapper.py",
+      "to": "quillyos-knowledge-base/medical/health_matrix.md",
+      "relationship": "implements",
+      "confidence": 0.95
+    },
+    {
+      "from": "skills/business/arbitrage/upwork_connector.py",
+      "to": "quillyos-foundation/REVENUE_MODEL.md#tier-1",
+      "relationship": "implements",
+      "confidence": 0.9
+    }
+  ]
+}
