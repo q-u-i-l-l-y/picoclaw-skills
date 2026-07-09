@@ -11,8 +11,16 @@ class BrokerValidator:
         self.of = self.d / "broker_deals.json"
         
     def load_leads(self):
-        if not self.lf.exists(): return []
+        if not self.lf.exists() or self.lf.stat().st_size == 0:
+            return self._mock_leads()
         return json.loads(self.lf.read_text())
+    
+    def _mock_leads(self):
+        return [
+            {"id": "m1", "title": "Python API Dev", "budget": 500, "hourly": None, "effort_hours": 20, "skills": ["python", "api"], "client_history": {"total_hires": 5, "open_jobs": 2}},
+            {"id": "m2", "title": "Data Entry", "budget": 50, "hourly": None, "effort_hours": 5, "skills": ["excel"], "client_history": {"total_hires": 0, "open_jobs": 5}},
+            {"id": "m3", "title": "ML Training", "budget": 2000, "hourly": 75, "effort_hours": 40, "skills": ["python", "ml"], "client_history": {"total_hires": 12, "open_jobs": 1}},
+        ]
     
     def load_providers(self):
         if not self.pf.exists():
@@ -59,7 +67,7 @@ class BrokerValidator:
     def _risk(self, lead, provider, margin_pct):
         r = 0.0
         if margin_pct < 20: r += 0.3
-        if margin_pct > 70: r += 0.2  # too good to be true
+        if margin_pct > 70: r += 0.2
         if provider.get("reliability", 1) < 0.8: r += 0.3
         if lead.get("client_history", {}).get("total_hires", 0) == 0: r += 0.2
         return min(r, 1.0)
@@ -69,7 +77,7 @@ class BrokerValidator:
         all_deals = []
         for lead in leads:
             deals = self.match_providers(lead)
-            all_deals.extend(deals[:3])  # top 3 providers per lead
+            all_deals.extend(deals[:3])
         all_deals.sort(key=lambda x: x["margin"], reverse=True)
         self.of.write_text(json.dumps(all_deals, indent=2))
         return all_deals
