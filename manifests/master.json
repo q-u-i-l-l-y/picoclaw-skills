@@ -1,9 +1,10 @@
 {
-  "generated_at": "2026-03-06T14:07:41.783061",
-  "total_skills": 10,
-  "deployed": 3,
-  "pending_credentials": 2,
-  "not_built": 4,
+  "generated_at": "2026-07-09T00:00:00Z",
+  "total_skills": 20,
+  "deployed": 5,
+  "pending_credentials": 3,
+  "not_built": 12,
+  "version": "4.0.0",
   "skills": [
     {
       "name": "upwork_connector",
@@ -11,7 +12,7 @@
       "category": "revenue",
       "status": "credentials_pending",
       "purpose": "Discover and analyze Upwork job opportunities for arbitrage",
-      "entry_point": "tier1_revenue/upwork_connector.py",
+      "entry_point": "skills/business/arbitrage/upwork_connector.py",
       "env_required": [
         "UPWORK_API_KEY",
         "UPWORK_API_SECRET"
@@ -27,7 +28,7 @@
       "category": "revenue",
       "status": "not_built",
       "purpose": "Discover Freelancer.com projects for arbitrage",
-      "entry_point": "tier1_revenue/freelancer_connector.py",
+      "entry_point": "skills/business/arbitrage/freelancer_connector.py",
       "env_required": [
         "FREELANCER_API_KEY"
       ],
@@ -42,7 +43,7 @@
       "category": "revenue",
       "status": "not_built",
       "purpose": "Validate deal quality and calculate real margin",
-      "entry_point": "tier1_revenue/deal_validator.py",
+      "entry_point": "skills/business/arbitrage/deal_validator.py",
       "env_required": [],
       "outputs": [
         "workspace/memory/validated_deals.json"
@@ -55,7 +56,7 @@
       "category": "revenue",
       "status": "credentials_pending",
       "purpose": "Process payments and track real revenue",
-      "entry_point": "tier1_revenue/stripe_connector.py",
+      "entry_point": "skills/business/revenue/stripe_connector.py",
       "env_required": [
         "STRIPE_API_KEY"
       ],
@@ -65,12 +66,42 @@
       "version": "0.1.0"
     },
     {
+      "name": "real_estate_wholesale",
+      "tier": 1,
+      "category": "revenue",
+      "status": "not_built",
+      "purpose": "Identify undervalued properties and connect buyers/sellers",
+      "entry_point": "skills/business/real_estate/wholesale.py",
+      "env_required": [
+        "MLS_API_KEY"
+      ],
+      "outputs": [
+        "workspace/memory/real_estate_leads.json"
+      ],
+      "version": "0.1.0"
+    },
+    {
+      "name": "digital_product_pipeline",
+      "tier": 1,
+      "category": "revenue",
+      "status": "not_built",
+      "purpose": "Create and distribute digital products",
+      "entry_point": "skills/business/gumroad/pipeline.py",
+      "env_required": [
+        "GUMROAD_API_KEY"
+      ],
+      "outputs": [
+        "workspace/memory/digital_products.json"
+      ],
+      "version": "0.1.0"
+    },
+    {
       "name": "ollama_watchdog",
       "tier": 2,
       "category": "autonomy",
       "status": "deployed",
       "purpose": "Keep Ollama running 24/7 with auto-restart",
-      "entry_point": "tier2_autonomy/ollama_watchdog.py",
+      "entry_point": "skills/ollama/watchdog.py",
       "env_required": [],
       "outputs": [
         "logs/ollama_watchdog.log"
@@ -83,7 +114,7 @@
       "category": "autonomy",
       "status": "deployed",
       "purpose": "Auto-commit memory and skill updates to GitHub",
-      "entry_point": "tier2_autonomy/github_sync.sh",
+      "entry_point": "skills/coding/github_sync.py",
       "env_required": [
         "GITHUB_TOKEN_AGENTS"
       ],
@@ -98,13 +129,13 @@
       "category": "autonomy",
       "status": "deployed",
       "purpose": "Fetch Manus discussion content via API into knowledge base",
-      "entry_point": "tier2_autonomy/manus_api_integration.py",
+      "entry_point": "skills/coding/manus_sync.py",
       "env_required": [
         "MANUS_API_KEY",
         "MANUS_API_ENDPOINT"
       ],
       "outputs": [
-        "workspace/memory/manus_TVAEZQgQgXNBXq3Hb7XB6f.json"
+        "workspace/memory/manus_content.json"
       ],
       "version": "1.0.0"
     },
@@ -112,11 +143,37 @@
       "name": "model_router",
       "tier": 2,
       "category": "autonomy",
-      "status": "designed",
+      "status": "deployed",
       "purpose": "Route tasks to optimal model tier based on complexity",
-      "entry_point": "tier2_autonomy/model_router.py",
+      "entry_point": "skills/ollama/model_router.py",
       "env_required": [],
       "outputs": [],
+      "version": "1.0.0"
+    },
+    {
+      "name": "health_mapper",
+      "tier": 2,
+      "category": "intelligence",
+      "status": "not_built",
+      "purpose": "Ingest biometric data and create probabilistic health maps",
+      "entry_point": "skills/medical/health_mapper.py",
+      "env_required": [],
+      "outputs": [
+        "workspace/memory/health_maps.json"
+      ],
+      "version": "0.1.0"
+    },
+    {
+      "name": "supply_weaver",
+      "tier": 2,
+      "category": "intelligence",
+      "status": "not_built",
+      "purpose": "Map resource trajectories and predict supply chain movements",
+      "entry_point": "skills/business/supply_weaver.py",
+      "env_required": [],
+      "outputs": [
+        "workspace/memory/supply_chains.json"
+      ],
       "version": "0.1.0"
     },
     {
@@ -125,7 +182,7 @@
       "category": "intelligence",
       "status": "not_built",
       "purpose": "Compile insights across all crawl sources into unified KB",
-      "entry_point": "tier3_intelligence/context_synthesizer.py",
+      "entry_point": "skills/researcher/context_synthesizer.py",
       "env_required": [],
       "outputs": [
         "workspace/memory/synthesized_context.json"
@@ -133,17 +190,95 @@
       "version": "0.1.0"
     },
     {
-      "name": "supply_chain_mapper",
+      "name": "metamaterials_researcher",
       "tier": 3,
-      "category": "intelligence",
+      "category": "research",
       "status": "not_built",
-      "purpose": "Map and predict resource trajectories for arbitrage",
-      "entry_point": "tier3_intelligence/supply_chain_mapper.py",
+      "purpose": "Track and synthesize metamaterials research findings",
+      "entry_point": "skills/metamaterials/researcher.py",
       "env_required": [],
       "outputs": [
-        "workspace/memory/supply_chain.json"
+        "quillyos-knowledge-base/metamaterials/"
       ],
       "version": "0.1.0"
+    },
+    {
+      "name": "quantum_explorer",
+      "tier": 3,
+      "category": "research",
+      "status": "not_built",
+      "purpose": "Explore quantum communication technologies and their applications",
+      "entry_point": "skills/quantum/explorer.py",
+      "env_required": [],
+      "outputs": [
+        "quillyos-knowledge-base/quantum/"
+      ],
+      "version": "0.1.0"
+    },
+    {
+      "name": "document_ingestor",
+      "tier": 2,
+      "category": "autonomy",
+      "status": "deployed",
+      "purpose": "Ingest local documents and auto-commit to knowledge base",
+      "entry_point": "skills/crawler/document_ingestor.py",
+      "env_required": [],
+      "outputs": [
+        "quillyos-knowledge-base/"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "name": "self_diagnosis",
+      "tier": 2,
+      "category": "autonomy",
+      "status": "deployed",
+      "purpose": "System health scan and diagnostic reporting",
+      "entry_point": "skills/termux/self_diagnosis.py",
+      "env_required": [],
+      "outputs": [
+        "workspace/memory/health_brief.json"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "name": "reasoning_loop",
+      "tier": 2,
+      "category": "intelligence",
+      "status": "deployed",
+      "purpose": "DMSP introspection and learning loop",
+      "entry_point": "skills/reasoner/reasoning_loop.py",
+      "env_required": [],
+      "outputs": [
+        "workspace/memory/learnings.json"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "name": "agent_router",
+      "tier": 2,
+      "category": "intelligence",
+      "status": "deployed",
+      "purpose": "Route natural language goals to optimal skills",
+      "entry_point": "skills/reasoner/agent_router.py",
+      "env_required": [],
+      "outputs": [],
+      "version": "1.0.0"
+    },
+    {
+      "name": "nexus_matrix_sync",
+      "tier": 2,
+      "category": "autonomy",
+      "status": "deployed",
+      "purpose": "Synchronize nexus matrices across all repositories",
+      "entry_point": "skills/coding/nexus_matrix_sync.py",
+      "env_required": [
+        "GITHUB_TOKEN_QUILLYOS_WRITE"
+      ],
+      "outputs": [
+        "nexus_matrix.json updates"
+      ],
+      "version": "1.0.0"
     }
   ]
 }
