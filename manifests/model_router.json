@@ -1,0 +1,11 @@
+{
+  "name": "model_router",
+  "tier": 2,
+  "category": "autonomy",
+  "status": "designed",
+  "purpose": "Route tasks to optimal model tier based on complexity",
+  "entry_point": "tier2_autonomy/model_router.py",
+  "env_required": [],
+  "outputs": [],
+  "version": "0.1.0"
+}

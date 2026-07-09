@@ -1,0 +1,13 @@
+{
+  "name": "deal_validator",
+  "tier": 1,
+  "category": "revenue",
+  "status": "not_built",
+  "purpose": "Validate deal quality and calculate real margin",
+  "entry_point": "tier1_revenue/deal_validator.py",
+  "env_required": [],
+  "outputs": [
+    "workspace/memory/validated_deals.json"
+  ],
+  "version": "0.1.0"
+}

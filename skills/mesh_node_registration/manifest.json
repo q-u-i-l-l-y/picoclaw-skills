@@ -1,0 +1,16 @@
+{
+  "name": "mesh_node_registration",
+  "tier": 2,
+  "category": "autonomy",
+  "description": "Registers this device as a spoke node in the PicoClaw distributed mesh network",
+  "entry_point": "skills/mesh_node_registration/register.py",
+  "env_requirements": [],
+  "node_type": ["spoke-compute", "spoke-data", "spoke-revenue", "spoke-health", "spoke-quantum"],
+  "inputs": ["node_type", "capabilities", "region"],
+  "outputs": ["node_id", "mesh_status", "registered_capabilities"],
+  "north_star_aligned": true,
+  "phase_gate": "phase_1_revenue_foundation",
+  "author": "q-u-i-l-l-y",
+  "license": "MIT",
+  "version": "3.0.0"
+}

@@ -1,0 +1,15 @@
+{
+  "name": "freelancer_connector",
+  "tier": 1,
+  "category": "revenue",
+  "status": "not_built",
+  "purpose": "Discover Freelancer.com projects for arbitrage",
+  "entry_point": "tier1_revenue/freelancer_connector.py",
+  "env_required": [
+    "FREELANCER_API_KEY"
+  ],
+  "outputs": [
+    "workspace/memory/freelancer_leads.json"
+  ],
+  "version": "0.1.0"
+}

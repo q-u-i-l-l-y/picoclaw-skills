@@ -1,0 +1,16 @@
+{
+  "name": "manus_sync",
+  "tier": 2,
+  "category": "autonomy",
+  "status": "deployed",
+  "purpose": "Fetch Manus discussion content via API into knowledge base",
+  "entry_point": "tier2_autonomy/manus_api_integration.py",
+  "env_required": [
+    "MANUS_API_KEY",
+    "MANUS_API_ENDPOINT"
+  ],
+  "outputs": [
+    "workspace/memory/manus_TVAEZQgQgXNBXq3Hb7XB6f.json"
+  ],
+  "version": "1.0.0"
+}

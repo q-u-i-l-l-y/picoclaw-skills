@@ -1,0 +1,13 @@
+{
+  "name": "ollama_watchdog",
+  "tier": 2,
+  "category": "autonomy",
+  "status": "deployed",
+  "purpose": "Keep Ollama running 24/7 with auto-restart",
+  "entry_point": "tier2_autonomy/ollama_watchdog.py",
+  "env_required": [],
+  "outputs": [
+    "logs/ollama_watchdog.log"
+  ],
+  "version": "1.0.0"
+}
